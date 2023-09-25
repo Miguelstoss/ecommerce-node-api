@@ -1,62 +1,60 @@
 import { Categoria } from "@modules/catalogo/domain/categoria/categoria.entity";
-import { RecuperarCategoriaProps } from "@modules/catalogo/domain/categoria/categoria.types";
-import { CategoriaMap } from "@modules/catalogo/mappers/categoria.map";
+import { PrismaClient } from "@prisma/client";
 import { DomainException } from "@shared/domain/domain.exception";
-import { readFile, writeFile } from "fs";
+import { error } from "console";
 
-try {
+const prisma = new PrismaClient();
 
-    ///////////////////
-    //Criar Categoria//
-    ///////////////////
+async function main() {
 
-    let categoria: Categoria;
+    /////////////////////
+    //Criar Categorias//
+    ////////////////////
+
+    /*let categoria: Categoria;
     categoria = Categoria.criar({nome:'mesa'});
-    console.log(categoria);
-
-    ///////////////////////
-    //Recuperar Categoria//
-    ///////////////////////
-
-    let propsCategoria: RecuperarCategoriaProps = {
-        id:'6ad12850-abe4-49fe-967e-ab915cce9b3a',
-        nome: 'cama'
-    };
-    let categoria2: Categoria = Categoria.recuperar(propsCategoria);
-    console.log(categoria2);
-
-    //////////////////////////////////////////////////////
-    //Persistinto e Recuperando em Arquivo - File System//
-    //////////////////////////////////////////////////////
-
-    let arrayCategorias = [];
-    arrayCategorias.push(categoria.toDTO());
-	arrayCategorias.push(categoria2.toDTO());
     
-    writeFile('categorias.json', JSON.stringify(arrayCategorias), function (error:any) {
-        if (error) throw error;
-        console.log('Arquivo Salvo com Sucesso!');
-        readFile('categorias.json', (error, dadoGravadoArquivo) => {
-            if (error) throw error;
-            console.log('Leitura de Arquivo!');
-            let categoriasSalvas: [] = JSON.parse(dadoGravadoArquivo.toString());
-            categoriasSalvas.forEach(categoriaJSON => {
-                console.log(categoriaJSON);
-                console.log(CategoriaMap.toDomain(categoriaJSON));
-            })
-        });
-    });
-} 
-catch (error:any) {
-    if (error instanceof DomainException) {
-        console.log('Execeção de Dóminio');
-        console.log(error.message);
-    }
-    else {
-        console.log('Outras Exceções');
-        console.log(error.message);
-    }
+    ////////////////////////////////
+    //Persistir Categoria no Banco//
+    ////////////////////////////////
+
+    await prisma.categoria.create({
+        data: {
+            id: categoria.id,
+            nome: categoria.nome
+        }
+    });*/
+
+    ////////////////////////////////
+    //Atualizar Categoria no Banco//
+    ////////////////////////////////
+
+    const categoriaRecuperada = await prisma.categoria.update({
+        where: { id: "8886a1e0-2940-42ec-8ab3-1a4688bbd50e"},
+        data: { nome: 'banho'},
+    })
+
+    /////////////////////
+    //Listar Categorias//
+    /////////////////////
+
+    const ListarCategorias = await prisma.categoria.findMany();
+    console.log(ListarCategorias);
 }
-finally {
-    console.log('Ação que deve ser executada em caso de sucesso e em caso de exceção');
-}
+
+main()
+    .then(async () => {
+    await prisma.$disconnect()
+    })
+    .catch(async (error) => {
+        if (error instanceof DomainException) {
+            console.log('Exceção de Domínio');
+            console.log(error.message);
+        }
+        else {
+            console.log('Outras Exceções');
+            console.log(error.message);
+        }
+        await prisma.$disconnect()
+        process.exit(1)
+    })
