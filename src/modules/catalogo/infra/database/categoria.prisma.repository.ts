@@ -14,10 +14,7 @@ class CategoriaPrismaRepository extends PrismaRepository implements ICategoriaRe
             }
         )
         if (categoriarecuperada) {
-            return CategoriaMap.toDomain({
-                id: categoriarecuperada.id,
-                nome: categoriarecuperada.nome
-            })
+            return CategoriaMap.fromPrismaModelToDomain(categoriarecuperada);
         }
         return null;
     }
@@ -25,13 +22,8 @@ class CategoriaPrismaRepository extends PrismaRepository implements ICategoriaRe
     async recuperarTodos(): Promise<Array<Categoria>> {
        const categoriasRecuperadas = await this._datasource.categoria.findMany();
        const categorias = categoriasRecuperadas.map(
-        (categoria) => CategoriaMap.toDomain(
-            {
-                id: categoria.id,
-                nome: categoria.nome
-            }
-        )
-       )
+        (categoria) => CategoriaMap.fromPrismaModelToDomain(categoria)
+       );   
        return categorias;
     }
 

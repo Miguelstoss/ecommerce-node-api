@@ -19,22 +19,45 @@ async function main() {
 
     const categoriaRepo =  new CategoriaPrismaRepository(prisma);
 
+    //////////////////////
+    //Recuperar Por UUID//
+    //////////////////////
+    
+    //const categoriaRecuperada = await categoriaRepo.recuperarPorUuid("3154c9eb-35f0-452f-a94b-87fe429281ce");
 
-    //const categoriaRecuperada = await categoriaRepo.recuperarPorUuid("8886a1e0-2940-42ec-8ab3-1a4688bbd50e");
+    //console.log(categoriaRecuperada);
 
-   // console.log(categoriaRecuperada);
+    /////////////////////////////////
+    //Recuperar Todas as Categorias//
+    /////////////////////////////////
+    
+    //const todasCategorias: Array<Categoria> = await categoriaRepo.recuperarTodos();
 
-   //const categoria: Categoria = Categoria.criar({
-   // nome: 'cama'
-   //})
+    //console.log(todasCategorias);
 
-   //const categoriaInserida = await categoriaRepo.inserir(categoria);
+    ////////////////////////////////
+    //Verifica se Existe Categoria//
+    ////////////////////////////////
+    
+    //const existeCategoria: boolean = await categoriaRepo.existe("3154c9eb-35f0-452f-a94b-87fe429281ce");
 
-   //console.log(categoriaInserida);
+    //console.log(existeCategoria);
 
-   //const categorias = await categoriaRepo.recuperarTodos();
+    /////////////////////
+    //Inserir Categoria//
+    /////////////////////
 
-   //console.log(categorias);
+    //const categoria: Categoria = Categoria.criar({
+    // nome: 'cama'
+    //});
+
+    //const categoriaInserida = await categoriaRepo.inserir(categoria);
+
+    //console.log(categoriaInserida);
+
+    ///////////////////////
+    //Atualizar Categoria//
+    ///////////////////////
 
    //const categoria = Categoria.recuperar({
    // id:"c28e388a-4e0a-4117-8f93-84ec3a1d86d5",
@@ -45,9 +68,13 @@ async function main() {
 
    //console.log(categoriaAtualizada);
 
-   const categoriaDeletada = await categoriaRepo.deletar('c28e388a-4e0a-4117-8f93-84ec3a1d86d5');
+    /////////////////////
+    //Deletar Categoria//
+    /////////////////////
 
-   console.log(categoriaDeletada);
+   //const categoriaDeletada = await categoriaRepo.deletar('c28e388a-4e0a-4117-8f93-84ec3a1d86d5');
+
+   //console.log(categoriaDeletada);
 
 }
 
