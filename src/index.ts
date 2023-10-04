@@ -1,5 +1,7 @@
 import { Categoria } from "@modules/catalogo/domain/categoria/categoria.entity";
+import { Produto } from "@modules/catalogo/domain/produto/pordutoentity";
 import { CategoriaPrismaRepository } from "@modules/catalogo/infra/database/categoria.prisma.repository";
+import { ProdutoPrismaRepository } from "@modules/catalogo/infra/database/produto.prisma.repository";
 import { PrismaClient } from "@prisma/client";
 import { DomainException } from "@shared/domain/domain.exception";
 import { error } from "console";
@@ -18,14 +20,15 @@ async function main() {
     );
 
     const categoriaRepo =  new CategoriaPrismaRepository(prisma);
+    const produtoRepo = new ProdutoPrismaRepository(prisma);
 
-    //////////////////////
-    //Recuperar Por UUID//
-    //////////////////////
+    ////////////////////////////////
+    //Recuperar Categoria Por UUID//
+    ////////////////////////////////
     
-    //const categoriaRecuperada = await categoriaRepo.recuperarPorUuid("3154c9eb-35f0-452f-a94b-87fe429281ce");
+    //const produtoRecuperado = await produtoRepo.recuperarPorUuid("3154c9eb-35f0-452f-a94b-87fe429281ce");
 
-    //console.log(categoriaRecuperada);
+    //console.log(produtoRecuperado);
 
     /////////////////////////////////
     //Recuperar Todas as Categorias//
@@ -59,14 +62,14 @@ async function main() {
     //Atualizar Categoria//
     ///////////////////////
 
-   //const categoria = Categoria.recuperar({
-   // id:"c28e388a-4e0a-4117-8f93-84ec3a1d86d5",
-   // nome: 'cama casal' 
-   //})
+    //const categoria = Categoria.recuperar({
+    // id:"c28e388a-4e0a-4117-8f93-84ec3a1d86d5",
+    // nome: 'cama casal' 
+    //})
 
-   //const categoriaAtualizada = await categoriaRepo.atualizar(categoria.id, categoria);
+    //const categoriaAtualizada = await categoriaRepo.atualizar(categoria.id, categoria);
 
-   //console.log(categoriaAtualizada);
+    //console.log(categoriaAtualizada);
 
     /////////////////////
     //Deletar Categoria//
@@ -75,6 +78,81 @@ async function main() {
    //const categoriaDeletada = await categoriaRepo.deletar('c28e388a-4e0a-4117-8f93-84ec3a1d86d5');
 
    //console.log(categoriaDeletada);
+
+    //////////////////////////////
+    //Recuperar Produto Por UUID//
+    //////////////////////////////
+    
+    //const produtoRecuperado: Produto | null = await produtoRepo.recuperarPorUuid("3154c9eb-35f0-452f-a94b-87fe429281ce");
+
+    //console.log(produtoRecuperado);
+
+    /////////////////////
+    ///Inserir Produto///
+    /////////////////////
+
+    /*const categoria01: Categoria = Categoria.recuperar({
+        id: "3154c9eb-35f0-452f-a94b-87fe429281ce",
+        nome: 'Mesa'
+    });    
+
+    const categoria02: Categoria = Categoria.recuperar({
+        id: "8886a1e0-2940-42ec-8ab3-1a4688bbd50e",
+        nome: 'Banho'
+    });
+
+    const produto: Produto = Produto.criar({
+        nome:'Toalha de mesa',
+        descricao:'toalha de algodão',
+        valor:40,
+        categorias:[categoria01,categoria02]
+     });
+
+    const produtoInserido = await produtoRepo.inserir(produto);
+
+    console.log(produtoInserido);*/
+
+    /////////////////////////////////
+    ///Recuperar Todos as Produtos///
+    /////////////////////////////////
+    
+    //const produtosRecuperados: Array<Produto> = await produtoRepo.recuperarTodos();
+
+    //console.log(produtosRecuperados);
+    
+    /////////////////////
+    //Atualizar Produto//
+    /////////////////////
+
+    /*const categoria01: Categoria = Categoria.recuperar({
+        id: "3154c9eb-35f0-452f-a94b-87fe429281ce",
+        nome: 'Mesa'
+    });    
+
+    const categoria02: Categoria = Categoria.recuperar({
+        id: "8886a1e0-2940-42ec-8ab3-1a4688bbd50e",
+        nome: 'Banho'
+    });
+   
+    const produto: Produto = Produto.recuperar({
+        id: "94b646a0-0af1-43d2-a4a5-4b907bf2d2bd",
+        nome: "Toalha de Mesa Grande",
+        descricao: "Toalha de Algodão",
+        valor: 100,
+        categorias:[categoria01,categoria02]
+    });    
+
+    const atualizouProduto: boolean = await produtoRepo.atualizar(produto.id,produto);
+
+    console.log(atualizouProduto)*/
+
+    /////////////////////
+    ///Deletar Produto///
+    /////////////////////
+
+   //const produtoDeletado = await produtoRepo.deletar('94b646a0-0af1-43d2-a4a5-4b907bf2d2bd');
+
+   //console.log(produtoDeletado);
 
 }
 
