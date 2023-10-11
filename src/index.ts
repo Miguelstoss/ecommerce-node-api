@@ -1,10 +1,10 @@
 import { Categoria } from "@modules/catalogo/domain/categoria/categoria.entity";
-import { Produto } from "@modules/catalogo/domain/produto/pordutoentity";
+import { Produto } from "@modules/catalogo/domain/produto/produto.entity";
+import { StatusProduto } from '@modules/catalogo/domain/produto/produto.types';
 import { CategoriaPrismaRepository } from "@modules/catalogo/infra/database/categoria.prisma.repository";
 import { ProdutoPrismaRepository } from "@modules/catalogo/infra/database/produto.prisma.repository";
 import { PrismaClient } from "@prisma/client";
 import { DomainException } from "@shared/domain/domain.exception";
-import { error } from "console";
 
 const prisma = new PrismaClient({
     log: ['query', 'info'],
@@ -25,7 +25,7 @@ async function main() {
     ////////////////////////////////
     //Recuperar Categoria Por UUID//
     ////////////////////////////////
-    
+
     //const produtoRecuperado = await produtoRepo.recuperarPorUuid("3154c9eb-35f0-452f-a94b-87fe429281ce");
 
     //console.log(produtoRecuperado);
@@ -33,7 +33,7 @@ async function main() {
     /////////////////////////////////
     //Recuperar Todas as Categorias//
     /////////////////////////////////
-    
+
     //const todasCategorias: Array<Categoria> = await categoriaRepo.recuperarTodos();
 
     //console.log(todasCategorias);
@@ -41,7 +41,7 @@ async function main() {
     ////////////////////////////////
     //Verifica se Existe Categoria//
     ////////////////////////////////
-    
+
     //const existeCategoria: boolean = await categoriaRepo.existe("3154c9eb-35f0-452f-a94b-87fe429281ce");
 
     //console.log(existeCategoria);
@@ -75,14 +75,14 @@ async function main() {
     //Deletar Categoria//
     /////////////////////
 
-   //const categoriaDeletada = await categoriaRepo.deletar('c28e388a-4e0a-4117-8f93-84ec3a1d86d5');
+    //const categoriaDeletada = await categoriaRepo.deletar('c28e388a-4e0a-4117-8f93-84ec3a1d86d5');
 
-   //console.log(categoriaDeletada);
+    //console.log(categoriaDeletada);
 
     //////////////////////////////
     //Recuperar Produto Por UUID//
     //////////////////////////////
-    
+
     //const produtoRecuperado: Produto | null = await produtoRepo.recuperarPorUuid("3154c9eb-35f0-452f-a94b-87fe429281ce");
 
     //console.log(produtoRecuperado);
@@ -106,7 +106,7 @@ async function main() {
         descricao:'toalha de algodão',
         valor:40,
         categorias:[categoria01,categoria02]
-     });
+        });
 
     const produtoInserido = await produtoRepo.inserir(produto);
 
@@ -115,11 +115,11 @@ async function main() {
     /////////////////////////////////
     ///Recuperar Todos as Produtos///
     /////////////////////////////////
-    
+
     //const produtosRecuperados: Array<Produto> = await produtoRepo.recuperarTodos();
 
     //console.log(produtosRecuperados);
-    
+
     /////////////////////
     //Atualizar Produto//
     /////////////////////
@@ -133,7 +133,7 @@ async function main() {
         id: "8886a1e0-2940-42ec-8ab3-1a4688bbd50e",
         nome: 'Banho'
     });
-   
+
     const produto: Produto = Produto.recuperar({
         id: "94b646a0-0af1-43d2-a4a5-4b907bf2d2bd",
         nome: "Toalha de Mesa Grande",
@@ -150,9 +150,48 @@ async function main() {
     ///Deletar Produto///
     /////////////////////
 
-   //const produtoDeletado = await produtoRepo.deletar('94b646a0-0af1-43d2-a4a5-4b907bf2d2bd');
+    //const produtoDeletado = await produtoRepo.deletar('94b646a0-0af1-43d2-a4a5-4b907bf2d2bd');
 
-   //console.log(produtoDeletado);
+    //console.log(produtoDeletado);
+
+    ////////////////////////////////////////////
+    //Adicionar e Remover Categoria ao Produto//
+    ////////////////////////////////////////////
+
+    //const produtoRecuperado: Produto | null = await produtoRepo.recuperarPorUuid("94b646a0-0af1-43d2-a4a5-4b907bf2d2bd");
+
+    //const categoriaRecuperada: Categoria | null = await categoriaRepo.recuperarPorUuid("3154c9eb-35f0-452f-a94b-87fe429281ce");
+
+    //if (produtoRecuperado && categoriaRecuperada){
+
+        //if (produtoRecuperado.adicionarCategoria(categoriaRecuperada)) {
+        //    await produtoRepo.adicionarCategoria(produtoRecuperado,categoriaRecuperada);
+        //}
+
+        //if (produtoRecuperado.removerCategoria(categoriaRecuperada)) {
+        //    await produtoRepo.removerCategoria(produtoRecuperado,categoriaRecuperada);
+        //}
+
+    //}
+
+    //////////////////////////
+    //Alterar Status Produto//
+    //////////////////////////
+
+    //const produtoRecuperado: Produto | null = await produtoRepo.recuperarPorUuid("94b646a0-0af1-43d2-a4a5-4b907bf2d2bd");
+
+    //if (produtoRecuperado) {
+    //    const alterouStatusProduto: boolean = await produtoRepo.alterarStatus(produtoRecuperado,StatusProduto.ATIVO)
+    //    console.log(alterouStatusProduto);
+    //}
+
+    ////////////////////////////////////
+    //Recuperar Produtos por Categoria//
+    ////////////////////////////////////
+            
+    //const todosProdutosPorCategoria: Array<Produto> = await produtoRepo.recuperarPorCategoria("3154c9eb-35f0-452f-a94b-87fe429281ce");
+
+    //console.log(todosProdutosPorCategoria);
 
 }
 
