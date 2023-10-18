@@ -143,7 +143,7 @@ class Produto extends Entity<IProduto> implements IProduto{
                 this.nome = produto.nome;
                 this.descricao = produto.descricao;
                 this.valor = produto.valor;
-                this.categorias = produto.categorias;
+                this.categorias = produto.categorias.map((categoria) => { return Categoria.recuperar(categoria as RecuperarProdutoProps)});
                 this.dataCriacao = produto.dataCriacao;
                 this.dataAtualizacao = produto.dataAtualizacao;
                 this.dataExclusao = produto.dataExclusao;
