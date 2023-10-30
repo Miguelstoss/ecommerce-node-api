@@ -19,12 +19,12 @@ async function main() {
 
 
     ////////////////////////////////
-    //Recuperar Categoria Por UUID//
+    //Recuperar Produto Por UUID//
     ////////////////////////////////
 
-    //const produtoRecuperado = await produtoRepo.recuperarPorUuid("3154c9eb-35f0-452f-a94b-87fe429281ce");
+    const produtoRecuperado = await produtoRepo.recuperarPorUuid("94b646a0-0af1-43d2-a4a5-4b907bf2d2bd");
 
-    //console.log(produtoRecuperado);
+    console.log(produtoRecuperado);
 
     /////////////////////////////////
     //Recuperar Todas as Categorias//
