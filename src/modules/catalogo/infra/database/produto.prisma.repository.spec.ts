@@ -41,24 +41,24 @@ describe('Repositório Prisma: Produto', () => {
                 status: StatusProduto.ATIVO,
                 categorias: [
                   {
-                    produtoId: '"94b646a0-0af1-43d2-a4a5-4b907bf2d2bd"',
-                    categoriaId: '"3154c9eb-35f0-452f-a94b-87fe429281ce"',
+                    produtoId: '94b646a0-0af1-43d2-a4a5-4b907bf2d2bd',
+                    categoriaId: '3154c9eb-35f0-452f-a94b-87fe429281ce',
                     dataCriacao: faker.date.anytime(),
                     dataAtualizacao: faker.date.anytime(),
                     categoria: {
-                        id: '"3154c9eb-35f0-452f-a94b-87fe429281ce"',
+                        id: '3154c9eb-35f0-452f-a94b-87fe429281ce',
                         nome: 'mesa',
                         dataCriacao: faker.date.anytime(),
                         dataAtualizacao: faker.date.anytime()
                     }
                   },
                   {
-                    produtoId: '"94b646a0-0af1-43d2-a4a5-4b907bf2d2bd"',
-                    categoriaId: '"8886a1e0-2940-42ec-8ab3-1a4688bbd50e"',
+                    produtoId: '94b646a0-0af1-43d2-a4a5-4b907bf2d2bd',
+                    categoriaId: '8886a1e0-2940-42ec-8ab3-1a4688bbd50e',
                     dataCriacao: faker.date.anytime(),
                     dataAtualizacao: faker.date.anytime(),
                     categoria: {
-                        id: '"8886a1e0-2940-42ec-8ab3-1a4688bbd50e"',
+                        id: '8886a1e0-2940-42ec-8ab3-1a4688bbd50e',
                         nome: 'banho',
                         dataCriacao: faker.date.anytime(),
                         dataAtualizacao: faker.date.anytime(),
