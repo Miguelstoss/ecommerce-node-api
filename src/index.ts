@@ -7,6 +7,7 @@ import { DomainException } from "@shared/domain/domain.exception";
 import { prisma } from "@main/infra/database/orm/prisma/client";
 import { categoriRepositorio as categoriaRepo } from "@modules/catalogo/infra/database";
 import { produtoRepositorio as produtoRepo } from "@modules/catalogo/infra/database";
+import { recuperarCategoriaPorIdUseCase, recuperarTodasCategoriasUseCase } from "@modules/catalogo/application/use-case";
 
 
 async function main() {
@@ -16,23 +17,18 @@ async function main() {
             console.log('Postgres Conectado');
         }
     );
-
-
+ 
     ////////////////////////////////
-    //Recuperar Produto Por UUID//
+    //Recuperar Categoria por UUID//
     ////////////////////////////////
-
-    const produtoRecuperado = await produtoRepo.recuperarPorUuid("94b646a0-0af1-43d2-a4a5-4b907bf2d2bd");
-
-    console.log(produtoRecuperado);
+   
+    //console.log(await recuperarCategoriaPorIdUseCase.execute("8886a1e0-2940-42ec-8ab3-1a4688bbd50e"));
 
     /////////////////////////////////
     //Recuperar Todas as Categorias//
     /////////////////////////////////
 
-    //const todasCategorias: Array<Categoria> = await categoriaRepo.recuperarTodos();
-
-    //console.log(todasCategorias);
+    //console.log(await recuperarTodasCategoriasUseCase.execute());
 
     ////////////////////////////////
     //Verifica se Existe Categoria//
