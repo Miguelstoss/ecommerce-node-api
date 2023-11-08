@@ -5,9 +5,9 @@ import { CategoriaPrismaRepository } from "@modules/catalogo/infra/database/cate
 import { ProdutoPrismaRepository } from "@modules/catalogo/infra/database/produto.prisma.repository";
 import { DomainException } from "@shared/domain/domain.exception";
 import { prisma } from "@main/infra/database/orm/prisma/client";
-import { categoriRepositorio as categoriaRepo } from "@modules/catalogo/infra/database";
+import { categoriaRepositorio as categoriaRepo } from "@modules/catalogo/infra/database";
 import { produtoRepositorio as produtoRepo } from "@modules/catalogo/infra/database";
-import { recuperarCategoriaPorIdUseCase, recuperarTodasCategoriasUseCase } from "@modules/catalogo/application/use-case";
+import { atualizaCategoriaUsecase, deletarCategoriaUseCase, inserirCategoriaUseCase, recuperarCategoriaPorIdUseCase, recuperarProdutoPorIdUseCase, recuperarTodasCategoriasUseCase } from "@modules/catalogo/application/use-case";
 
 
 async function main() {
@@ -30,54 +30,32 @@ async function main() {
 
     //console.log(await recuperarTodasCategoriasUseCase.execute());
 
-    ////////////////////////////////
-    //Verifica se Existe Categoria//
-    ////////////////////////////////
-
-    //const existeCategoria: boolean = await categoriaRepo.existe("3154c9eb-35f0-452f-a94b-87fe429281ce");
-
-    //console.log(existeCategoria);
-
     /////////////////////
     //Inserir Categoria//
     /////////////////////
 
-    //const categoria: Categoria = Categoria.criar({
-    // nome: 'cama'
-    //});
-
-    //const categoriaInserida = await categoriaRepo.inserir(categoria);
-
-    //console.log(categoriaInserida);
+    //console.log(await inserirCategoriaUseCase.execute({nome:'Cama'}));
 
     ///////////////////////
     //Atualizar Categoria//
     ///////////////////////
 
-    //const categoria = Categoria.recuperar({
-    // id:"c28e388a-4e0a-4117-8f93-84ec3a1d86d5",
-    // nome: 'cama casal' 
-    //})
-
-    //const categoriaAtualizada = await categoriaRepo.atualizar(categoria.id, categoria);
-
-    //console.log(categoriaAtualizada);
+    //console.log (await atualizaCategoriaUsecase.execute({
+    //    id: 'f2f20af9-e046-4347-84f1-f8e41a327695',
+    //    nome: 'Cama Casal'
+    //}));
 
     /////////////////////
     //Deletar Categoria//
     /////////////////////
 
-    //const categoriaDeletada = await categoriaRepo.deletar('c28e388a-4e0a-4117-8f93-84ec3a1d86d5');
-
-    //console.log(categoriaDeletada);
+    //console.log(await deletarCategoriaUseCase.execute('a38424da-07ae-4c75-856e-073e20d71da8'));
 
     //////////////////////////////
     //Recuperar Produto Por UUID//
     //////////////////////////////
 
-    //const produtoRecuperado: Produto | null = await produtoRepo.recuperarPorUuid("3154c9eb-35f0-452f-a94b-87fe429281ce");
-
-    //console.log(produtoRecuperado);
+    //console.log(await recuperarProdutoPorIdUseCase.execute('94b646a0-0af1-43d2-a4a5-4b907bf2d2bd'));
 
     /////////////////////
     ///Inserir Produto///

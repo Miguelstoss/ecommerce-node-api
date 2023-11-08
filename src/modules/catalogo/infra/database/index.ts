@@ -6,10 +6,10 @@ import { Produto } from "@modules/catalogo/domain/produto/produto.entity";
 import { ICategoriaRepository } from "@modules/catalogo/domain/categoria/categoria.repository.interface";
 import { Categoria } from "@modules/catalogo/domain/categoria/categoria.entity";
 
-const categoriRepositorio: ICategoriaRepository<Categoria> = new CategoriaPrismaRepository(prisma);
+const categoriaRepositorio: ICategoriaRepository<Categoria> = new CategoriaPrismaRepository(prisma);
 const produtoRepositorio: IProdutoRepository<Produto> = new ProdutoPrismaRepository(prisma);
 
 export {
-    categoriRepositorio,
+    categoriaRepositorio,
     produtoRepositorio
 }
