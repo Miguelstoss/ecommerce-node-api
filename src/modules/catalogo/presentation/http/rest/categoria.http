@@ -15,3 +15,15 @@ Content-type: application/json
 {
     "nome":"Sala de Estar"
 }
+
+### Atualizar Categoria
+PUT http://{{host}}:{{port}}/{{apiversion}}/categorias/f2f20af9-e046-4347-84f1-f8e41a327695
+Content-type: application/json 
+
+{
+    "id": "f2f20af9-e046-4347-84f1-f8e41a327695",
+    "nome":"Sala de Televisão"
+}
+
+### Deletar Categoria
+DELETE http://{{host}}:{{port}}/{{apiversion}}/categorias/f2f20af9-e046-4347-84f1-f8e41a327695

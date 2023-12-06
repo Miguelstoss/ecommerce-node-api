@@ -7,7 +7,7 @@ import { DomainException } from "@shared/domain/domain.exception";
 import { prisma } from "@main/infra/database/orm/prisma/client";
 import { categoriaRepositorio as categoriaRepo } from "@modules/catalogo/infra/database";
 import { produtoRepositorio as produtoRepo } from "@modules/catalogo/infra/database";
-import { atualizaCategoriaUsecase, deletarCategoriaUseCase, inserirCategoriaUseCase, recuperarCategoriaPorIdUseCase, recuperarProdutoPorIdUseCase, recuperarTodasCategoriasUseCase } from "@modules/catalogo/application/use-case";
+import { atualizarCategoriaUsecase, deletarCategoriaUseCase, inserirCategoriaUseCase, recuperarCategoriaPorIdUseCase, recuperarProdutoPorIdUseCase, recuperarTodasCategoriasUseCase } from "@modules/catalogo/application/use-case";
 
 
 async function main() {
@@ -40,7 +40,7 @@ async function main() {
     //Atualizar Categoria//
     ///////////////////////
 
-    //console.log (await atualizaCategoriaUsecase.execute({
+    //console.log (await atualizarCategoriaUsecase.execute({
     //    id: 'f2f20af9-e046-4347-84f1-f8e41a327695',
     //    nome: 'Cama Casal'
     //}));
