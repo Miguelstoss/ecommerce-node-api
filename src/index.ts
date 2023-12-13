@@ -34,7 +34,7 @@ async function main() {
     //Inserir Categoria//
     /////////////////////
 
-    //console.log(await inserirCategoriaUseCase.execute({nome:'Cama'}));
+    //console.log(await inserirCategoriaUseCase.execute({nome:'Banho'}));
 
     ///////////////////////
     //Atualizar Categoria//
@@ -63,17 +63,17 @@ async function main() {
 
     /*const categoria01: Categoria = Categoria.recuperar({
         id: "3154c9eb-35f0-452f-a94b-87fe429281ce",
-        nome: 'Mesa'
+        nome: 'Cama'
     });    
 
     const categoria02: Categoria = Categoria.recuperar({
         id: "8886a1e0-2940-42ec-8ab3-1a4688bbd50e",
-        nome: 'Banho'
+        nome: 'Mesa'
     });
 
     const produto: Produto = Produto.criar({
-        nome:'Toalha de mesa',
-        descricao:'toalha de algodão',
+        nome:'Lençol',
+        descricao:'lençol de algodão',
         valor:40,
         categorias:[categoria01,categoria02]
         });

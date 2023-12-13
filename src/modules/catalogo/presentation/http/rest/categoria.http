@@ -17,13 +17,13 @@ Content-type: application/json
 }
 
 ### Atualizar Categoria
-PUT http://{{host}}:{{port}}/{{apiversion}}/categorias/f2f20af9-e046-4347-84f1-f8e41a327695
+PUT http://{{host}}:{{port}}/{{apiversion}}/categorias/880a6e3e-ba35-4371-9a6d-2539b053082f
 Content-type: application/json 
 
 {
-    "id": "f2f20af9-e046-4347-84f1-f8e41a327695",
+    "id": "880a6e3e-ba35-4371-9a6d-2539b053082f",
     "nome":"Sala de Televisão"
 }
 
 ### Deletar Categoria
-DELETE http://{{host}}:{{port}}/{{apiversion}}/categorias/f2f20af9-e046-4347-84f1-f8e41a327695
+DELETE http://{{host}}:{{port}}/{{apiversion}}/categorias/3c30db75-5a96-40d9-83e0-f5d16a1af856
