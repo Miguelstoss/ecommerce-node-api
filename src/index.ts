@@ -7,7 +7,7 @@ import { DomainException } from "@shared/domain/domain.exception";
 import { prisma } from "@main/infra/database/orm/prisma/client";
 import { categoriaRepositorio as categoriaRepo } from "@modules/catalogo/infra/database";
 import { produtoRepositorio as produtoRepo } from "@modules/catalogo/infra/database";
-import { atualizarCategoriaUsecase, deletarCategoriaUseCase, inserirCategoriaUseCase, recuperarCategoriaPorIdUseCase, recuperarProdutoPorIdUseCase, recuperarTodasCategoriasUseCase } from "@modules/catalogo/application/use-case";
+import { atualizarCategoriaUsecase, deletarCategoriaUseCase, inserirCategoriaUseCase, recuperarCategoriaPorIdUseCase, recuperarProdutoPorIdUseCase, recuperarTodasCategoriasUseCase, recuperarTodosProdutosUseCase } from "@modules/catalogo/application/use-case";
 
 
 async function main() {
@@ -62,18 +62,18 @@ async function main() {
     /////////////////////
 
     /*const categoria01: Categoria = Categoria.recuperar({
-        id: "3154c9eb-35f0-452f-a94b-87fe429281ce",
+        id: "7ae09f59-f198-43fa-8941-03ecf658b0a8",
         nome: 'Cama'
     });    
 
     const categoria02: Categoria = Categoria.recuperar({
-        id: "8886a1e0-2940-42ec-8ab3-1a4688bbd50e",
+        id: "9a3fa751-23dd-492c-9baa-5c8695970481",
         nome: 'Mesa'
     });
 
     const produto: Produto = Produto.criar({
-        nome:'Lençol',
-        descricao:'lençol de algodão',
+        nome:'Fronha',
+        descricao:'Fronha de algodão',
         valor:40,
         categorias:[categoria01,categoria02]
         });
