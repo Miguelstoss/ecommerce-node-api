@@ -1,4 +1,4 @@
-import { IDatasControle, KeysDatasControles } from "@shared/domain/datas.types";
+import { IDatasControle, KeysDatasControle } from "@shared/domain/datas.types";
 import { ICategoria } from "../categoria/categoria.types";
 
 enum StatusProduto {
@@ -20,7 +20,7 @@ interface IProduto extends IDatasControle{
 //Atributos que são necessários para criar um produto 
 //Tipo representa um dos estados do ciclo de vida da entidade
 //Garantir a integridade dos dados de um objeto
-type CriarProdutoProps = Omit<IProduto, "id" | KeysDatasControles | "status">;
+type CriarProdutoProps = Omit<IProduto, "id" | KeysDatasControle | "status">;
 
 //Atributos que são necessários para recuperar uma categoria
 //Tipo representa um dos estados do ciclo de vida da entidade

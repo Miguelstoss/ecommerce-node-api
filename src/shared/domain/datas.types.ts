@@ -6,6 +6,6 @@ interface IDatasControle {
     dataExclusao?: Date | null;
 }
 
-type KeysDatasControles = keyof IDatasControle;
+type KeysDatasControle = keyof IDatasControle;
 
-export { IDatasControle, KeysDatasControles }
+export { IDatasControle, KeysDatasControle }
