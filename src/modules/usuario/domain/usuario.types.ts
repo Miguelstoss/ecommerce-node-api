@@ -28,9 +28,13 @@ import { IDatasControle, KeysDatasControle } from "@shared/domain/datas.types";
         id: NonNullable<IUsuario['id']>
     };
 
-    export {
-        IUsuario,
-        CriarUsuarioProps,
-        RecuperarUsuarioProps,
-        TipoUsuario
-    }
+    //Credenciais do Usuário
+type CredenciaisUsuarioProps = Omit<IUsuario, "id" | "nome" | "tipo" | KeysDatasControle>;
+
+export {
+    IUsuario,
+    CriarUsuarioProps,
+    RecuperarUsuarioProps,
+    TipoUsuario,
+    CredenciaisUsuarioProps
+}

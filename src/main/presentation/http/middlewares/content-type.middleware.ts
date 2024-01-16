@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from "express";
 
 const allowedContentTypes = ['application/json'];
 
-function contentTypeMiddleware(
+function contentType(
     request: Request,
     response: Response,
     next: NextFunction
@@ -17,4 +17,4 @@ function contentTypeMiddleware(
     next();
 }
 
-export { contentTypeMiddleware }
+export { contentType }

@@ -27,3 +27,12 @@ Content-type: application/json
 
 ### Deletar Categoria
 DELETE http://{{host}}:{{port}}/{{apiversion}}/categorias/3c30db75-5a96-40d9-83e0-f5d16a1af856
+
+### Inserir Uma Categoria
+POST http://{{host}}:{{port}}/{{apiversion}}/categorias
+Content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNhZmM5NDNiLTdlYTgtNDIzNC1hOTNjLTRlZDExNjk2MzA1NCIsIm5vbWUiOiJQZWRybyIsImVtYWlsIjoicGVkcm9AbWFpbC5jb20iLCJ0aXBvIjoiQURNSU5JU1RSQURPUiIsImlhdCI6MTcwNTM2MTQ3MiwiZXhwIjoxNzA1MzY1MDcyfQ.tVLDBT752egLQZH5Ly1Oe6r6KGi3Knu8mQrgGE9n6KY
+
+{
+    "nome":"Sala de Televisão"
+}

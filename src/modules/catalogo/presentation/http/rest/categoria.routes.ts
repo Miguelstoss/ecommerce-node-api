@@ -1,7 +1,9 @@
 import express, { NextFunction, Request, Response } from 'express';
 import { atualizarCategoriaController, deletarCategoriaController, inserirCategoriaController, recuperarCategoriaPorIdController, recuperarTodasCategoriasController } from './controllers';
-import { contentTypeMiddleware } from '@main/presentation/http/middlewares/content-type.middleware';
+import { contentType } from '@main/presentation/http/middlewares/content-type.middleware';
 import { validaInputInserirCategoria } from '../middlewares/valida-input-inserir-categoria.middleware';
+import { authUsuario } from '@main/presentation/http/middlewares/auth-usuario.middleware';
+import { TipoUsuario } from '@modules/usuario/domain/usuario.types';
 
 
 const categoriaRouter = express.Router();
@@ -18,20 +20,25 @@ categoriaRouter.get(
 
 categoriaRouter.post(
     '/',
-    contentTypeMiddleware,
-    validaInputInserirCategoria,
-    (request, response, next) =>  inserirCategoriaController.inserir(request, response, next)
+    authUsuario([TipoUsuario.ADMINISTRADOR]),    contentType,
+   (request, response, next) =>  inserirCategoriaController.inserir(request, response, next)
 )
 
 categoriaRouter.put(
     '/:id',
-    contentTypeMiddleware,
+     
+
+authUsuario([TipoUsuario.ADMINISTRADOR]),
+    contentType,
     (request, response, next) =>  atualizarCategoriaController.atualizar(request, response, next)
-)
+)   
 
 categoriaRouter.delete(
     '/:id',
-    (request, response, next) =>  deletarCategoriaController.deletar(request, response, next)
-)
+    
+
+    authUsuario([TipoUsuario.ADMINISTRADOR]),
+        (request, response, next) =>  deletarCategoriaController.deletar(request, response, next)
+    )
 
 export { categoriaRouter };
